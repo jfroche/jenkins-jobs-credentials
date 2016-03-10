@@ -1,0 +1,6 @@
+.coverage
+.testr.conf
+.testrepository
+.tox
+*.egg-info
+*.pyc
