@@ -1,10 +1,8 @@
 .coverage
-.testr.conf
 .testrepository
 .tox
 *.egg-info
 *.pyc
 build
-doc
 AUTHORS
 ChangeLog
