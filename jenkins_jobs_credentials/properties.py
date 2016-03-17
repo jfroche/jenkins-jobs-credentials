@@ -50,7 +50,7 @@ def folder_credential(parser, xml_parent, data):
     for cred_id, credential in data.items():
         if credential['type'] == 'UsernamePassword':
             pwdCred = XML.SubElement(creds, "com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl",
-                                          plugin="credentials")
+                                     plugin="credentials")
             XML.SubElement(pwdCred, "id").text = cred_id
             XML.SubElement(pwdCred, "username").text = credential['username']
             XML.SubElement(pwdCred, "description").text = credential.get('description')
@@ -63,7 +63,8 @@ def folder_credential(parser, xml_parent, data):
             XML.SubElement(keyCred, "description").text = credential.get('description')
             XML.SubElement(keyCred, "passphrase").text = credential.get('passphrase')
             if credential.get('keytype') == 'source':
-                privKey = XML.SubElement(keyCred, "privateKeySource", **{'class': "com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey$DirectEntryPrivateKeySource"})
+                privKey = XML.SubElement(keyCred, "privateKeySource",
+                                         **{'class': "com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey$DirectEntryPrivateKeySource"})
             XML.SubElement(privKey, "privateKey").text = credential['privatekey']
         else:
             raise JenkinsJobsException('unknown credential type. Must be UsernamePassword or SSHKey')
