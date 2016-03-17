@@ -4,3 +4,6 @@ all: test
 
 test: .tox/py27
 	tox -e py27 -- $(ARGS)
+
+docs:
+	tox -e docs

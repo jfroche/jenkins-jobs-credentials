@@ -3,11 +3,40 @@
 
 import xml.etree.ElementTree as XML
 from jenkins_jobs.errors import JenkinsJobsException
-import logging
 import jenkins_jobs.modules.base
 
 
 def folder_credential(parser, xml_parent, data):
+    """yaml: folder-credential
+    Plugin enable folder (:jenkins-wiki:`CloudBees Folders <CloudBees+Folders+Plugin>`) scoped credential.
+    Requires the Jenkins :jenkins-wiki:`Credentials Plugin <Credentials+Plugin>`.
+    If you want to store ssh keys you will also need: :jenkins-wiki:`Jenkins SSH Credentials Plugin <SSH+Credentials+Plugin>`.
+
+    We can implement two kind of credential:
+
+     1. Username with password
+     2. SSH username with private key
+
+    Username with Password credential:
+
+    :arg string type: UsernamePassword (required)
+    :arg string username: the username (required)
+    :arg string description: the description of the credential
+    :arg string password: the password (required)
+
+    SSH Username with private key:
+
+    :arg string type: SSHKey (required)
+    :arg string username: the username (required)
+    :arg string passphrase: the passphrase to use with the key
+    :arg string description: the description of the credential
+    :arg string keytype: `source` use the inline private key provided in the `privatekey` parameter (required)
+    :arg string privatekey: the private key
+
+    Example:
+
+    .. literalinclude:: /../../tests/properties/fixtures/folder_credential.yaml
+    """
     folder_cred = XML.SubElement(xml_parent,
                                  'com.cloudbees.hudson.plugins.folder.'
                                  'properties.FolderCredentialsProvider_'
