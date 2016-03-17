@@ -6,7 +6,7 @@ inside a folder with the folders plugin (https://wiki.jenkins-ci.org/display/JEN
 
 To store ssh keys in the credentials you will also need the ssh credentials plugin ( https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin/SSH+Credentials+Plugin).
 
-.. image:: https://travis-ci.org/jfroche/jenkins-job-builder-credentials.svg?branch=master
+.. image:: https://travis-ci.org/jfroche/jenkins-job-builder.svg?branch=master
     :target: https://travis-ci.org/jfroche/jenkins-job-builder-credentials
 
 Documentation
